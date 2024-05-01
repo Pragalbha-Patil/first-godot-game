@@ -575,7 +575,7 @@ position = Vector2(215, -16)
 position = Vector2(615, -33)
 
 [node name="Slime4" parent="Enemies" instance=ExtResource("6_k6e7v")]
-position = Vector2(295, 62)
+position = Vector2(184, 63)
 
 [node name="Slime5" parent="Enemies" instance=ExtResource("6_k6e7v")]
 position = Vector2(696, 15)
@@ -616,20 +616,20 @@ theme_override_font_sizes/font_size = 8
 text = "Don't fall here..."
 
 [node name="Label5" type="Label" parent="Labels"]
-offset_left = 207.0
-offset_top = -59.0
-offset_right = 299.0
-offset_bottom = -36.0
+offset_left = 104.0
+offset_top = 27.0
+offset_right = 287.0
+offset_bottom = 50.0
 theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
 theme_override_fonts/font = ExtResource("7_81ea5")
 theme_override_font_sizes/font_size = 8
-text = "Avoid slimes..."
+text = "Jump on slime to kill..."
 
 [node name="Label6" type="Label" parent="Labels"]
-offset_left = 109.0
-offset_top = 37.0
-offset_right = 268.0
-offset_bottom = 60.0
+offset_left = 229.0
+offset_top = -79.0
+offset_right = 388.0
+offset_bottom = -56.0
 theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
 theme_override_fonts/font = ExtResource("7_81ea5")
 theme_override_font_sizes/font_size = 8
@@ -664,7 +664,7 @@ offset_bottom = -159.0
 theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
 theme_override_fonts/font = ExtResource("7_81ea5")
 theme_override_font_sizes/font_size = 8
-text = "PSP's Godot Game v.2.0"
+text = "PSP's Godot Game v.3.0"
 horizontal_alignment = 1
 autowrap_mode = 2
 uppercase = true

@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgbu8ao85sci6"]
+[gd_scene load_steps=15 format=3 uid="uid://dgbu8ao85sci6"]
 
 [ext_resource type="Texture2D" uid="uid://dvib30g4ko2bs" path="res://assets/sprites/slime_green.png" id="1_lk4qw"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_xfvdl"]
 [ext_resource type="PackedScene" uid="uid://cdioyum4akq0p" path="res://scenes/killzone.tscn" id="2_xxh1b"]
+[ext_resource type="Texture2D" uid="uid://c2kuutontljba" path="res://assets/sprites/slime_purple.png" id="3_q4mbi"]
+[ext_resource type="AudioStream" uid="uid://b8of0s456q074" path="res://assets/sounds/explosion.wav" id="4_fi04v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_38ytj"]
 atlas = ExtResource("1_lk4qw")
@@ -19,6 +21,18 @@ region = Rect2(48, 24, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_v70i0"]
 atlas = ExtResource("1_lk4qw")
 region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpkx3"]
+atlas = ExtResource("1_lk4qw")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hcag"]
+atlas = ExtResource("3_q4mbi")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7e5k"]
+atlas = ExtResource("3_q4mbi")
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yl8pl"]
 animations = [{
@@ -38,10 +52,24 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpkx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hcag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7e5k")
+}],
+"loop": true,
+"name": &"killed",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nx0ym"]
-size = Vector2(10, 14)
+size = Vector2(10, 15)
 
 [node name="Slime" type="Node2D"]
 script = ExtResource("1_xfvdl")
@@ -50,13 +78,12 @@ script = ExtResource("1_xfvdl")
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_yl8pl")
 autoplay = "default"
-frame_progress = 0.85153
 
 [node name="Killzone" parent="." instance=ExtResource("2_xxh1b")]
-position = Vector2(0, -13)
+position = Vector2(0, -7)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 5)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_nx0ym")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
@@ -66,3 +93,13 @@ target_position = Vector2(9, 0)
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, -8)
 target_position = Vector2(-9, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fi04v")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
