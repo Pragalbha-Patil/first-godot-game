@@ -555,7 +555,10 @@ position = Vector2(631, 38)
 position = Vector2(680, -71)
 
 [node name="Coin15" parent="Coins" instance=ExtResource("10_7ivpt")]
-position = Vector2(456, -119)
+position = Vector2(489, -87)
+
+[node name="Coin14" parent="Coins" instance=ExtResource("10_7ivpt")]
+position = Vector2(440, -135)
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -658,5 +661,9 @@ theme_override_font_sizes/font_size = 8
 text = "PSP's Godot Game v.1.0"
 horizontal_alignment = 1
 autowrap_mode = 2
+uppercase = true
+
+[node name="Slime" parent="." instance=ExtResource("6_k6e7v")]
+position = Vector2(-309, 17)
 
 [connection signal="ready" from="GameManager" to="GameManager" method="_on_ready"]
