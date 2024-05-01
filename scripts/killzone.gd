@@ -4,7 +4,6 @@ extends Area2D
 @onready var kill_sound = $kill
 
 func _on_body_entered(body):
-	print("You died!")
 	kill_sound.play()
 	timer.start()
 	Engine.time_scale = 0.5
