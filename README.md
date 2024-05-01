@@ -1,1 +1,1 @@
-I made my first Godot Game using Godot Game engine (https://godotengine.org/)
+I made my first 2D platformer Game using the Godot Game engine (https://godotengine.org/)
