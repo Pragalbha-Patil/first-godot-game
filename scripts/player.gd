@@ -5,11 +5,15 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var jump_sound = $jump
+const TITLE = "PSP's First Godot Game"
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
+	DisplayServer.window_set_title(TITLE + " | fps: " + str(Engine.get_frames_per_second()))
+	# print(Engine.get_frames_per_second())
+	
 	# hide mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
