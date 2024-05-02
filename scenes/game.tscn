@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://x5j12s8stc84" path="res://scenes/player.tscn" id="1_o2t7n"]
 [ext_resource type="Texture2D" uid="uid://bk7iex4yegwsu" path="res://assets/sprites/world_tileset.png" id="2_nylj0"]
 [ext_resource type="FontFile" uid="uid://lipt0nbisp4k" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_vnduu"]
-[ext_resource type="AudioStream" uid="uid://b60kdtvfixhko" path="res://assets/sounds/power_up.wav" id="3_0nyj8"]
+[ext_resource type="AudioStream" uid="uid://ci5kv6vnoxyt2" path="res://assets/sounds/win.wav" id="3_2qlfv"]
 [ext_resource type="PackedScene" uid="uid://cxi81wmfysaay" path="res://scenes/platform.tscn" id="3_nddu2"]
 [ext_resource type="PackedScene" uid="uid://cdioyum4akq0p" path="res://scenes/killzone.tscn" id="5_5ewwd"]
 [ext_resource type="PackedScene" uid="uid://dgbu8ao85sci6" path="res://scenes/slime.tscn" id="6_k6e7v"]
@@ -472,8 +472,12 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="win" type="AudioStreamPlayer2D" parent="GameManager"]
-stream = ExtResource("3_0nyj8")
+stream = ExtResource("3_2qlfv")
 bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="GameManager"]
+wait_time = 2.0
+one_shot = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_q7l1f")
@@ -670,3 +674,4 @@ autowrap_mode = 2
 uppercase = true
 
 [connection signal="ready" from="GameManager" to="GameManager" method="_on_ready"]
+[connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
