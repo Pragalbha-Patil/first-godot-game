@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdioyum4akq0p"]
 
 [ext_resource type="Script" path="res://scripts/killzone.gd" id="1_mbu68"]
-[ext_resource type="AudioStream" uid="uid://bkbw63fnujofv" path="res://assets/sounds/death.wav" id="2_nbnnv"]
+[ext_resource type="AudioStream" uid="uid://o64dqbywrf7n" path="res://assets/sounds/death_new.wav" id="2_xuwol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x015r"]
 size = Vector2(8, 1)
@@ -14,7 +14,8 @@ script = ExtResource("1_mbu68")
 one_shot = true
 
 [node name="kill" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_nbnnv")
+stream = ExtResource("2_xuwol")
+volume_db = 8.5
 bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="."]

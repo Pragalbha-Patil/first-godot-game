@@ -1,6 +1,6 @@
 extends Node
 
-const TOTAL_COINS = 31
+const TOTAL_COINS = 30
 var score = 0
 @onready var score_label = $ScoreLabel
 @onready var win_sfx = $win

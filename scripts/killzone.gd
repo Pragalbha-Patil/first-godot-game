@@ -9,7 +9,6 @@ func _on_body_entered(body):
 	if !kill_player:
 		pass
 	else:
-		print("player killed")
 		kill_sound.play()
 		timer.start()
 		Engine.time_scale = 0.5
