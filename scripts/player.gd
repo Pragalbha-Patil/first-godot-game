@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
+const WIDTH = 1152
+const HEIGHT = 648
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var jump_sound = $jump
 const TITLE = "PSP's First Godot Game"
@@ -16,6 +18,10 @@ func _physics_process(delta):
 	
 	# hide mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+	# close on ESC key
+	if Input.is_action_pressed("exit"):
+		get_tree().quit()
 
 	# Add the gravity.
 	if not is_on_floor():
